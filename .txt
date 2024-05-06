@@ -1,0 +1,93 @@
+PROBLEM: Build a website that connects talented individuals with businesses seeking skilled employees.
+Focus: Make the website user-friendly for two audiences:
+Job Seekers: People looking for work, including those returning from career breaks, with disabilities, veterans, and retirees.
+Employers: Businesses searching for skilled workers with options for remote work or flexible schedules.
+
+
+Success Criteria:-
+Matching: The website should connect job seekers and employers based on skills and job requirements.
+Usability: Both job seekers and employers should find the website easy to navigate and use.
+
+
+
+
+// Inside your Apply component
+
+// Function to handle resume download
+function downloadResume() {
+    // Create a blob URL from the resume data URL
+    const blobUrl = URL.createObjectURL(new Blob([Applicationdata.resume]));
+    // Create a temporary anchor element
+    const a = document.createElement('a');
+    // Set the anchor's href to the blob URL
+    a.href = blobUrl;
+    // Set the anchor's download attribute to the desired file name
+    a.download = 'resume.pdf'; // Change the file name extension according to the resume type
+    // Append the anchor to the document body
+    document.body.appendChild(a);
+    // Programmatically trigger a click on the anchor element
+    a.click();
+    // Remove the anchor from the document body
+    document.body.removeChild(a);
+    // Revoke the blob URL to free up memory
+    URL.revokeObjectURL(blobUrl);
+}
+
+// Render a download button for the resume
+return (
+    <div>
+        {/* Your other form fields */}
+        <button type="button" onClick={downloadResume}>Download Resume</button>
+    </div>
+);
+
+
+
+
+
+
+
+UserEmail : {
+
+        type : String,
+        unique : true
+    },
+
+    Description : {
+
+         type : String
+    },
+
+    ContactInfo : {
+
+         type : String
+    },
+
+    Education : {
+
+        type : String
+    },
+
+    WorkExperience : {
+
+         type : String
+    },
+
+    Skills : {
+
+         type : String
+    },
+
+    Careerstatus : {
+
+         type : String
+    },
+
+    Employementtype : {
+
+         type : String
+    },
+
+    posts : [],
+
+    jobposts : []
